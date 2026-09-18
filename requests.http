@@ -1,0 +1,115 @@
+### 1. Add Employee 1
+POST http://localhost:8080/employees
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john.doe@gmail.com",
+  "department": "IT",
+  "salary": 55000.0
+}
+
+###
+
+### 2. Add Employee 2
+POST http://localhost:8080/employees
+Content-Type: application/json
+
+{
+  "name": "Jane Smith",
+  "email": "jane.smith@gmail.com",
+  "department": "HR",
+  "salary": 60000.0
+}
+
+###
+
+### 3. Get All Employees
+GET http://localhost:8080/employees
+
+###
+
+### 4. Get Employee By ID
+GET http://localhost:8080/employees/1
+
+###
+
+### 5. Update Employee Details
+PUT http://localhost:8080/employees/1
+Content-Type: application/json
+
+{
+  "name": "Johnathan Doe",
+  "email": "johnathan.doe@gmail.com",
+  "department": "IT Support",
+  "salary": 58000.0
+}
+
+###
+
+### 6. Apply Leave Request for Employee 1
+POST http://localhost:8080/leaves
+Content-Type: application/json
+
+{
+  "leaveType": "CASUAL",
+  "startDate": "2026-09-20",
+  "endDate": "2026-09-22",
+  "reason": "Personal work",
+  "status": "PENDING",
+  "employee": {
+    "id": 1
+  }
+}
+
+###
+
+### 7. Apply Second Leave Request for Employee 1
+POST http://localhost:8080/leaves
+Content-Type: application/json
+
+{
+  "leaveType": "SICK",
+  "startDate": "2026-10-05",
+  "endDate": "2026-10-06",
+  "reason": "Fever",
+  "status": "PENDING",
+  "employee": {
+    "id": 1
+  }
+}
+
+###
+
+### 8. Get All Leave Requests
+GET http://localhost:8080/leaves
+
+###
+
+### 9. Get Leave Request By ID
+GET http://localhost:8080/leaves/1
+
+###
+
+### 10. Get All Leaves of a Specific Employee (Medium-Level Requirement)
+GET http://localhost:8080/employees/1/leaves
+
+###
+
+### 11. Update Leave Status (Approve Leave)
+PUT http://localhost:8080/leaves/1/status
+Content-Type: application/json
+
+{
+  "status": "APPROVED"
+}
+
+###
+
+### 12. Delete Leave Request
+DELETE http://localhost:8080/leaves/2
+
+###
+
+### 13. Delete Employee
+DELETE http://localhost:8080/employees/2
